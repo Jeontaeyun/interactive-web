@@ -20,6 +20,13 @@ ctx.fillRect(10, 10, 150, 100);
 
 `<canvas>` Element create drawing area which has fixed size and expose one or more `rendering contexts` which is need to handle canvas.
 
+## `window.requestAnimationFrame()` method
+
+`requestAnimationFrame()` is
+
 ## Reference
 
 [01. Canvas API - MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Canvas)
+[02. window.requestAnimationFrame API - MDN](https://developer.mozilla.org/ko/docs/Web/API/Window/requestAnimationFrame)
+[03. CanvasRenderingContext2D.quadraticCurveTo() API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
+[04. CanvasRenderingContext2D.beginToPath() API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath)
