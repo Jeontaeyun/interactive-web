@@ -1,6 +1,5 @@
-import {
-    Hill
-} from "./hill.js"
+import { Hill } from "./hill.js"
+import { SheepController } from "./sheep-controller.js";
 
 class App {
     constructor() {
@@ -9,10 +8,12 @@ class App {
         document.body.appendChild(this.canvas);
 
         this.hills = [
-            new Hill("#ff4674", 0.6, 10),
-            new Hill("#ff59c2", 1.0, 8),
-            new Hill("#fd6bea", 1.6, 6),
+            new Hill("#ff4674", 0.6, 4),
+            new Hill("#ff59c2", 1.0, 6),
+            new Hill("#fd6bea", 1.6, 10),
         ]
+
+        this.sheepController = new SheepController();
 
         window.addEventListener("resize", this.resize, false)
         this.resize();
@@ -34,9 +35,13 @@ class App {
         for (let i = 0; i < this.hills.length; i++) {
             this.hills[i].resize(this.stageWidth, this.stageHeight);
         }
+
+        this.sheepController.resize(this.stageWidth, this.stageHeight);
     }
 
     // Canvas를 지워주는 코드
+    // time은 FPS를 위한 타임스탬프
+    // requestAnimationFrame은 타임스탬프를 파라미터로 넘겨받는데 이를 통해 FPS를 정의할 수 있다.
     animate = (time) => {
         requestAnimationFrame(this.animate);
 
@@ -46,6 +51,8 @@ class App {
         for (let i = 0; i < this.hills.length; i++) {
             dots = this.hills[i].draw(this.ctx)
         }
+
+        this.sheepController.draw(this.ctx, time, dots)
     }
 }
 
