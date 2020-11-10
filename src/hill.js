@@ -66,9 +66,9 @@ export class Hill {
         }
 
         ctx.lineTo(prev.x, prev.y);
-        ctx.lineTo(this.stageWidth, this.stageHeight),
-            ctx.lineTo(this.points[0].x, this.stageHeight),
-            ctx.fill()
+        ctx.lineTo(this.stageWidth, this.stageHeight);
+        ctx.lineTo(this.points[0].x, this.stageHeight);
+        ctx.fill();
 
         return dots;
     }
