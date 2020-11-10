@@ -38,3 +38,4 @@ ctx.fillRect(10, 10, 150, 100);
 [03. CanvasRenderingContext2D.quadraticCurveTo() API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
 [04. CanvasRenderingContext2D.beginToPath() API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/beginPath)
 [05. Youtube reference for this project](https://www.youtube.com/watch?v=hCHL7sydzn0&t=264s)
+[06. Stack Overflow - Draw a line with gradient in canvas ](https://stackoverflow.com/questions/45789186/draw-a-line-with-gradient-in-canvas)
