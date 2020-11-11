@@ -15,7 +15,7 @@ class App {
         ]
 
         this.sheepController = new SheepController();
-        this.sun = new Sun(100, 100);
+        this.sun = new Sun(200);
 
         window.addEventListener("resize", this.resize, false)
         this.resize();
@@ -39,6 +39,7 @@ class App {
         }
 
         this.sheepController.resize(this.stageWidth, this.stageHeight);
+        this.sun.resize(this.stageWidth, this.stageHeight)
     }
 
     /**
@@ -51,13 +52,13 @@ class App {
 
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight)
 
+        this.sun.draw(this.ctx);
         let dots;
         for (let hillIndex = 0; hillIndex < this.hills.length; hillIndex++) {
             dots = this.hills[hillIndex].draw(this.ctx)
         }
 
         this.sheepController.draw(this.ctx, time, dots)
-        this.sun.draw();
     }
 }
 

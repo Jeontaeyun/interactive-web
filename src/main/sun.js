@@ -1,17 +1,19 @@
 export class Sun {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height;
+    constructor(radius) {
+        this.radius = radius;
+        this.color = "#fe9867"
+        this.marginTop = 100
+    }
+
+    resize = (stageWidth, stageHeight) => {
+        this.stageWidth = stageWidth;
+        this.stageHeight = stageHeight;
     }
 
     draw = (ctx) => {
-        ctx.save();
-        ctx.fillStyle = "#0000"
+        ctx.fillStyle = this.color
         ctx.beginPath();
-        ctx.arc(0, 0, 3000, 0, 2 * Math.PI)
-        ctx.clearPath();
+        ctx.arc(this.stageWidth - this.radius, this.radius + this.marginTop, this.radius, 0, 2 * Math.PI)
         ctx.fill();
-        ctx.stroke();
-        ctx.restore();
     }
 }
