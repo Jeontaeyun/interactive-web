@@ -25,9 +25,7 @@ export class SheepController {
     }
 
     addSheep = () => {
-        this.items.push(
-            new Sheep(this.img, this.stageWidth)
-        )
+        this.items.push(new Sheep(this.img, this.stageWidth))
     }
 
     draw = (ctx, t, dots) => {
@@ -37,13 +35,10 @@ export class SheepController {
                 this.cur = 0;
                 this.addSheep();
             }
-            for (let i = this.items.length - 1; i >= 0; i--) {
-                const item = this.items[i];
-                if (item.x < - item.width) {
-                    this.items.splice(i, 1);
-                } else {
-                    item.draw(ctx, t, dots)
-                }
+            for (let index = this.items.length - 1; index >= 0; index--) {
+                const item = this.items[index];
+                if (item.x < - item.width) this.items.splice(index, 1);
+                else item.draw(ctx, t, dots)
             }
         }
     }

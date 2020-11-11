@@ -44,6 +44,10 @@ export class Sheep {
         const closest = this.getY(this.x, dots);
         this.y = closest.y;
 
+        /**
+         * Sheep에 대한 부분만 translate, rotate하고 싶어 save -> restore 함
+         * save와 restore 사이에는 사실상 독립된 Context가 생성된다.
+         */
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(closest.rotation)
@@ -54,11 +58,8 @@ export class Sheep {
 
     getY = (x, dots) => {
         for (let i = 1; i < dots.length; i++) {
-            if (x >= dots[i].x1 && x <= dots[i].x3) {
-                return this.getY2(x, dots[i]);
-            }
+            if (x >= dots[i].x1 && x <= dots[i].x3) return this.getY2(x, dots[i]);
         }
-
         return {
             y: 0,
             rotation: 0
