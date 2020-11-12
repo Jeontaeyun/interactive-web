@@ -17,7 +17,9 @@ export class Sheep {
         this.speed = Math.random() * 2 + 1;
 
         this.fps = 24;
-        this.fpsTime = 1000 / this.fps
+        this.fpsTime = 1000 / this.fps;
+
+        this.isClicked = false;
     }
 
     draw = (ctx, time, dots) => {
@@ -40,19 +42,28 @@ export class Sheep {
     }
 
     animate = (ctx, dots) => {
-        this.x -= this.speed;
-        const closest = this.getY(this.x, dots);
-        this.y = closest.y;
+        if (!this.isClicked) {
 
-        /**
-         * Sheep에 대한 부분만 translate, rotate하고 싶어 save -> restore 함
-         * save와 restore 사이에는 사실상 독립된 Context가 생성된다.
-         */
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.rotate(closest.rotation)
-        ctx.drawImage(this.img, this.imgWidth * this.curFrame, 0, this.imgWidth, this.imgHeight, -this.sheepWidthHalf, -this.sheepHeight + 20, this.sheepWidth, this.sheepHeight)
-        ctx.restore();
+            const closest = this.getY(this.x, dots);
+            this.x -= this.speed;
+            this.y = closest.y;
+
+            /**
+             * Sheep에 대한 부분만 translate, rotate하고 싶어 save -> restore 함
+             * save와 restore 사이에는 사실상 독립된 Context가 생성된다.
+             */
+
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(closest.rotation)
+            ctx.drawImage(this.img, this.imgWidth * this.curFrame, 0, this.imgWidth, this.imgHeight, -this.sheepWidthHalf, -this.sheepHeight + 20, this.sheepWidth, this.sheepHeight)
+            ctx.restore();
+        } else {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.drawImage(this.img, this.imgWidth * this.curFrame, 0, this.imgWidth, this.imgHeight, -this.sheepWidthHalf, -this.sheepHeight + 20, this.sheepWidth, this.sheepHeight)
+            ctx.restore();
+        }
 
     }
 

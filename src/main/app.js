@@ -20,6 +20,7 @@ class App {
         window.addEventListener("resize", this.resize, false)
         this.resize();
 
+        this.canvasClickEventHandler()
         requestAnimationFrame(this.animate)
     }
 
@@ -53,12 +54,43 @@ class App {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight)
 
         this.sun.draw(this.ctx);
-        let dots;
+
         for (let hillIndex = 0; hillIndex < this.hills.length; hillIndex++) {
-            dots = this.hills[hillIndex].draw(this.ctx)
+            this.dots = this.hills[hillIndex].draw(this.ctx)
         }
 
-        this.sheepController.draw(this.ctx, time, dots)
+        this.sheepController.draw(this.ctx, time, this.dots)
+    }
+
+    canvasClickEventHandler = () => {
+        this.canvas.addEventListener("mousedown", (event) => {
+            this.sheepController.items.some(item => {
+                if (event.pageX > item.x && event.pageX < item.x + item.imgWidth && event.pageY < item.y && event.pageY > item.y - item.sheepHeight) {
+                    item.isClicked = true;
+                    return true;
+                }
+                return false;
+            })
+            if (event.region) {
+                console.log(`[HIT REGION] ${event.region}`)
+            }
+        })
+        this.canvas.addEventListener("mousemove", (event) => {
+            this.sheepController.items.forEach(item => {
+                if (!item.isClicked) return;
+                item.x = event.pageX;
+                const closest = item.getY(event.pageX, this.dots)
+                if (closest.y > event.pageY) item.y = event.pageY;
+                else item.y = closest.y
+            })
+        })
+        this.canvas.addEventListener("mouseup", (event) => {
+            this.sheepController.items.forEach(item => {
+                if (!item.isClicked) return;
+                item.isClicked = false;
+                item.x = event.pageX;
+            })
+        })
     }
 }
 
