@@ -10,5 +10,9 @@
     "name": "Stark Jeon",
     "email": "a01058406602@gmail.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pixi.js": "^5.3.3",
+    "webfontloader": "^1.6.28"
+  }
 }

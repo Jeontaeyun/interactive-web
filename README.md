@@ -55,6 +55,10 @@ This mean if monitor scan rate is 140FPS, `requestAnimationFrame()` called 140/1
 | fillRect(x, y, width, height)                                       | Draw filled rectangular                                                                                     |
 | strokeRect(x, y, width, height)                                     | Draw out line of rectangular                                                                                |
 
+## PIXI.js
+
+`PIXI.js` is the HTML5 creation engine with 2D WebGL renderer. It have 3 main specificity, `Fast`, `Flexible`, `Free`.
+
 ## Reference
 
 [01. Canvas API - MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Canvas)  
@@ -66,4 +70,5 @@ This mean if monitor scan rate is 140FPS, `requestAnimationFrame()` called 140/1
 [07. CanvasRenderingContext2D save() and restore() ](https://www.tutorialspoint.com/What-are-save-and-restore-methods-in-HTML5-Canvas)  
 [08. Canvas Tutorial](https://developer.mozilla.org/ko/docs/Web/HTML/Canvas/Tutorial)  
 [09. Bezier Curves](https://en.wikipedia.org/wiki/B%C3%A9zier_curve#:~:text=A%20B%C3%A9zier%20curve%20)  
-[10. How to handle canvas click event](https://webisfree.com/2018-05-31/[html5]-canvas-%EC%9A%94%EC%86%8C%EC%9D%98-%EB%8F%84%ED%98%95%EC%97%90-%ED%81%B4%EB%A6%AD-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+[10. How to handle canvas click event](https://webisfree.com/2018-05-31/[html5]-canvas-%EC%9A%94%EC%86%8C%EC%9D%98-%EB%8F%84%ED%98%95%EC%97%90-%ED%81%B4%EB%A6%AD-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)  
+[11. PIXI.js Document](https://www.pixijs.com/)
